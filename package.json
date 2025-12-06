@@ -1,8 +1,9 @@
 {
   "name": "formz-snippets",
   "displayName": "Formz Snippets",
+  "icon": "icon.png",
   "description": "A collection of Formz input snippets for Flutter (compatible with Formz 0.8.0+).",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "paanoop",
   "engines": {
     "vscode": "^1.50.0"
@@ -17,5 +18,13 @@
         "path": "snippets/formz.code-snippets"
       }
     ]
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paanoop/formz-snippets"
+  },
+  "bugs": {
+    "url": "https://github.com/paanoop/formz-snippets/issues"
+  },
+  "homepage": "https://github.com/paanoop/formz-snippets"
 }
