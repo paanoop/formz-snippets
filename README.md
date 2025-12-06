@@ -101,13 +101,10 @@ Done. 🎉
 
 ---
 
-## 🖼️ Screenshots (coming soon)
+## 🎬 Demo
 
-You can add:
+![Formz Snippets Demo](media/demo.gif)
 
-- Demo GIFs  
-- Before/after validations  
-- Snippet expansion previews  
 
 ---
 
