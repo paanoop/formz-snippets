@@ -3,7 +3,7 @@
   "displayName": "Formz Snippets",
   "icon": "icon.png",
   "description": "A collection of Formz input snippets for Flutter (compatible with Formz 0.8.0+).",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "paanoop",
   "engines": {
     "vscode": "^1.50.0"

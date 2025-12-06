@@ -37,22 +37,22 @@ If you use BLoC + Formz, this extension saves **hours**.
 
 | Prefix | Description |
 |--------|-------------|
-| `formzInputString` | String input with basic validation |
-| `formzInputNullable` | Nullable string input |
-| `formzInputInt` | Integer input |
-| `formzInputDouble` | Double input |
-| `formzInputEmail` | Email validator (regex) |
-| `formzInputPassword` | Password with length rules |
-| `formzInputMobile` | Indian mobile validator |
-| `formzInputEnum` | Enum-based Formz input |
-| `formzInputDate` | DateTime input |
-| `formzInputOptional` | Optional-but-validated string |
-| `formzInputRegex` | Custom regex validator |
-| `formzInputPhoneCC` | Mobile with country code |
-| `formzInputUsername` | Username rules |
-| `formzInputOtp` | OTP input (4–6 digits) |
-| `formzInputUrl` | URL validator |
-| `formzInputJson` | JSON validation input |
+| `formzString` | String input with basic validation |
+| `formzNullable` | Nullable string input |
+| `formzInt` | Integer input |
+| `formzDouble` | Double input |
+| `formzEmail` | Email validator (regex) |
+| `formzPassword` | Password with length rules |
+| `formzMobile` | Indian mobile validator |
+| `formzEnum` | Enum-based Formz input |
+| `formzDate` | DateTime input |
+| `formzOptional` | Optional-but-validated string |
+| `formzRegex` | Custom regex validator |
+| `formzPhoneCC` | Mobile with country code |
+| `formzUsername` | Username rules |
+| `formzOtp` | OTP input (4–6 digits) |
+| `formzUrl` | URL validator |
+| `formzJson` | JSON validation input |
 
 ---
 
@@ -61,7 +61,7 @@ If you use BLoC + Formz, this extension saves **hours**.
 Typing:
 
 ```
-formzInputString → TAB
+formzString → TAB
 ```
 
 Produces:
@@ -86,6 +86,17 @@ class NameInput extends FormzInput<String, NameValidationError> {
 
 ---
 
+## ⚙️ Recommended VS Code Settings
+
+If IntelliSense overrides snippet expansion when pressing TAB or ENTER,  
+add this to your VS Code settings.json:
+
+```json
+"editor.acceptSuggestionOnEnter": "off",
+"editor.acceptSuggestionOnCommitCharacter": false
+```
+---
+
 ## 📥 Installation
 
 1. Open VS Code  
@@ -93,7 +104,7 @@ class NameInput extends FormzInput<String, NameValidationError> {
 3. Install  
 4. Start typing a snippet like:  
    ```
-   formzInputEmail
+   formzEmail
    ```  
 5. Press **TAB**
 
