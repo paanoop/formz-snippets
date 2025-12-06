@@ -1,0 +1,21 @@
+{
+  "name": "formz-snippets",
+  "displayName": "Formz Snippets",
+  "description": "A collection of Formz input snippets for Flutter (compatible with Formz 0.8.0+).",
+  "version": "0.0.1",
+  "publisher": "paanoop",
+  "engines": {
+    "vscode": "^1.50.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "dart",
+        "path": "snippets/formz.code-snippets"
+      }
+    ]
+  }
+}
