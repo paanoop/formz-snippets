@@ -38,7 +38,7 @@ If you use BLoC + Formz, this extension saves **hours**.
 | Prefix | Description |
 |--------|-------------|
 | `formzString` | String input with basic validation |
-| `formzNullable` | Nullable string input |
+| `formzStringNullable` | Nullable string input |
 | `formzInt` | Integer input |
 | `formzDouble` | Double input |
 | `formzEmail` | Email validator (regex) |
@@ -46,6 +46,7 @@ If you use BLoC + Formz, this extension saves **hours**.
 | `formzMobile` | Indian mobile validator |
 | `formzEnum` | Enum-based Formz input |
 | `formzDate` | DateTime input |
+| `formzDateNullable` | Nullable DateTime input |
 | `formzOptional` | Optional-but-validated string |
 | `formzRegex` | Custom regex validator |
 | `formzPhoneCC` | Mobile with country code |
