@@ -1,197 +1,295 @@
 {
-  // -----------------------------
-  // STRING INPUT
-  // -----------------------------
-  "Formz String Input": {
-    "prefix": "formzString",
-    "body": [
-      "enum ${1:Name}ValidationError { invalid }",
-      "",
-      "class ${1:Name}Input extends FormzInput<String, ${1:Name}ValidationError> {",
-      "  const ${1:Name}Input.pure() : super.pure('');",
-      "  const ${1:Name}Input.dirty([String value = '']) : super.dirty(value);",
-      "",
-      "  @override",
-      "  ${1:Name}ValidationError? validator(String value) {",
-      "    if (value.isEmpty) return ${1:Name}ValidationError.invalid;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Creates a Formz String input validator class."
-  },
-  // -----------------------------
-  // NULLABLE STRING
-  // -----------------------------
-  "Formz Nullable String Input": {
-    "prefix": "formzNullableString",
-    "body": [
-      "enum ${1:Name}ValidationError { invalid }",
-      "",
-      "class ${1:Name}Input extends FormzInput<String?, ${1:Name}ValidationError> {",
-      "  const ${1:Name}Input.pure() : super.pure(null);",
-      "  const ${1:Name}Input.dirty([String? value]) : super.dirty(value);",
-      "",
-      "  @override",
-      "  ${1:Name}ValidationError? validator(String? value) {",
-      "    if (value == null || value.isEmpty) return ${1:Name}ValidationError.invalid;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Nullable string Formz input."
-  },
-  // -----------------------------
-  // INT INPUT
-  // -----------------------------
-  "Formz Int Input": {
-    "prefix": "formzInt",
-    "body": [
-      "enum ${1:Count}ValidationError { invalid }",
-      "",
-      "class ${1:Count}Input extends FormzInput<int, ${1:Count}ValidationError> {",
-      "  const ${1:Count}Input.pure() : super.pure(0);",
-      "  const ${1:Count}Input.dirty([int value = 0]) : super.dirty(value);",
-      "",
-      "  @override",
-      "  ${1:Count}ValidationError? validator(int value) {",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Integer Formz input."
-  },
-  // -----------------------------
-  // DOUBLE INPUT
-  // -----------------------------
-  "Formz Double Input": {
-    "prefix": "formzDouble",
-    "body": [
-      "enum ${1:Amount}ValidationError { invalid }",
-      "",
-      "class ${1:Amount}Input extends FormzInput<double, ${1:Amount}ValidationError> {",
-      "  const ${1:Amount}Input.pure() : super.pure(0.0);",
-      "  const ${1:Amount}Input.dirty([double value = 0.0]) : super.dirty(value);",
-      "",
-      "  @override",
-      "  ${1:Amount}ValidationError? validator(double value) {",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Double Formz input."
-  },
-  // -----------------------------
-  // EMAIL
-  // -----------------------------
-  "Formz Email Input": {
-    "prefix": "formzEmail",
-    "body": [
-      "enum EmailValidationError { invalid }",
-      "",
-      "class EmailInput extends FormzInput<String, EmailValidationError> {",
-      "  const EmailInput.pure() : super.pure('');",
-      "  const EmailInput.dirty([String value = '']) : super.dirty(value);",
-      "",
-      "  static final _reg = RegExp(r'^[\\w-\\.]+@([\\w-]+\\.)+[a-zA-Z]{2,4}\\$');",
-      "",
-      "  @override",
-      "  EmailValidationError? validator(String value) {",
-      "    if (!_reg.hasMatch(value)) return EmailValidationError.invalid;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Email validator (regex)."
-  },
-  // -----------------------------
-  // PASSWORD
-  // -----------------------------
-  "Formz Password Input": {
-    "prefix": "formzPassword",
-    "body": [
-      "enum PasswordValidationError { short, invalid }",
-      "",
-      "class PasswordInput extends FormzInput<String, PasswordValidationError> {",
-      "  const PasswordInput.pure() : super.pure('');",
-      "  const PasswordInput.dirty([String value = '']) : super.dirty(value);",
-      "",
-      "  @override",
-      "  PasswordValidationError? validator(String value) {",
-      "    if (value.length < 6) return PasswordValidationError.short;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Password input validator."
-  },
-  // -----------------------------
-  // MOBILE (India)
-  // -----------------------------
-  "Formz Mobile Input": {
-    "prefix": "formzMobile",
-    "body": [
-      "enum MobileValidationError { invalid }",
-      "",
-      "class MobileInput extends FormzInput<String, MobileValidationError> {",
-      "  const MobileInput.pure() : super.pure('');",
-      "  const MobileInput.dirty([String value = '']) : super.dirty(value);",
-      "",
-      "  static final _reg = RegExp(r'^[6-9][0-9]{9}\\$');",
-      "",
-      "  @override",
-      "  MobileValidationError? validator(String value) {",
-      "    if (!_reg.hasMatch(value)) return MobileValidationError.invalid;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "Indian mobile number validator."
-  },
-  // -----------------------------
-  // URL INPUT
-  // -----------------------------
-  "Formz URL Input": {
-    "prefix": "formzUrl",
-    "body": [
-      "enum UrlValidationError { invalid }",
-      "",
-      "class UrlInput extends FormzInput<String, UrlValidationError> {",
-      "  const UrlInput.pure() : super.pure('');",
-      "  const UrlInput.dirty([String value = '']) : super.dirty(value);",
-      "",
-      "  static final _reg = RegExp(r'^(https?:\\/\\/)?[\\w.-]+\\.[a-zA-Z]{2,}.*\\$');",
-      "",
-      "  @override",
-      "  UrlValidationError? validator(String value) {",
-      "    if (!_reg.hasMatch(value)) return UrlValidationError.invalid;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "URL validator."
-  },
-  // -----------------------------
-  // OTP INPUT
-  // -----------------------------
-  "Formz OTP Input": {
-    "prefix": "formzOtp",
-    "body": [
-      "enum OtpValidationError { invalid }",
-      "",
-      "class OtpInput extends FormzInput<String, OtpValidationError> {",
-      "  const OtpInput.pure() : super.pure('');",
-      "  const OtpInput.dirty([String value = '']) : super.dirty(value);",
-      "",
-      "  static final _reg = RegExp(r'^[0-9]{4,6}\\$');",
-      "",
-      "  @override",
-      "  OtpValidationError? validator(String value) {",
-      "    if (!_reg.hasMatch(value)) return OtpValidationError.invalid;",
-      "    return null;",
-      "  }",
-      "}"
-    ],
-    "description": "OTP input validator."
-  }
+	// -----------------------------
+	// STRING INPUT
+	// -----------------------------
+	"Formz String Input": {
+		"prefix": "formzString",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum ${1:Name}ValidationError { empty, invalid }",
+			"",
+			"class ${1:Name}Input extends FormzInput<String, ${1:Name}ValidationError> {",
+			"  const ${1:Name}Input.pure() : super.pure('');",
+			"  const ${1:Name}Input.dirty([super.value = '']) : super.dirty();",
+			"",
+			"  @override",
+			"  ${1:Name}ValidationError? validator(String value) {",
+			"    if (value.trim().isEmpty) return ${1:Name}ValidationError.empty;",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "Creates a Formz String input validator class."
+	},
+	// -----------------------------
+	// NULLABLE STRING INPUT 
+	// -----------------------------
+	"Formz Nullable String Input": {
+		"prefix": "formzStringNullable",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum ${1:Name}ValidationError { invalid }",
+			"",
+			"class ${1:Name}Input extends FormzInput<String?, ${1:Name}ValidationError> {",
+			"  const ${1:Name}Input.pure() : super.pure(null);",
+			"",
+			"  const ${1:Name}Input.dirty([String? value])",
+			"      : super.dirty(value == '' ? null : value);",
+			"",
+			"  @override",
+			"  ${1:Name}ValidationError? validator(String? value) {",
+			"    if (value == null) return null;",
+			"",
+			"    if (!_${2:functionName}(value)) {",
+			"      return ${1:Name}ValidationError.invalid;",
+			"    }",
+			"",
+			"    return null;",
+			"  }",
+			"",
+			"  bool _${2:functionName}(String value) {",
+			"    return RegExp().hasMatch(value);",
+			"  }",
+			"}",
+			""
+		],
+		"description": "Nullable string input with separate custom function name."
+	},
+	// -----------------------------
+	// INT INPUT
+	// -----------------------------
+	"Formz Int Input": {
+		"prefix": "formzInt",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum ${1:Count}ValidationError { invalid }",
+			"",
+			"class ${1:Count}Input extends FormzInput<int, ${1:Count}ValidationError> {",
+			"  const ${1:Count}Input.pure() : super.pure(0);",
+			"  const ${1:Count}Input.dirty([super.value = 0]) : super.dirty();",
+			"",
+			"  @override",
+			"  ${1:Count}ValidationError? validator(int value) {",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "Integer Formz input."
+	},
+	// -----------------------------
+	// DOUBLE INPUT
+	// -----------------------------
+	"Formz Double Input": {
+		"prefix": "formzDouble",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum ${1:Amount}ValidationError { invalid }",
+			"",
+			"class ${1:Amount}Input extends FormzInput<double, ${1:Amount}ValidationError> {",
+			"  const ${1:Amount}Input.pure() : super.pure(0.0);",
+			"  const ${1:Amount}Input.dirty([super.value = 0.0]) : super.dirty();",
+			"",
+			"  @override",
+			"  ${1:Amount}ValidationError? validator(double value) {",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "Double Formz input."
+	},
+	// -----------------------------
+	// EMAIL
+	// -----------------------------
+	"Formz Email Input": {
+		"prefix": "formzEmail",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum EmailValidationError { invalid }",
+			"",
+			"class EmailInput extends FormzInput<String, EmailValidationError> {",
+			"  const EmailInput.pure() : super.pure('');",
+			"  const EmailInput.dirty([super.value = '']) : super.dirty();",
+			"",
+			"  static final _reg = RegExp(r'^[\\\\w-\\\\.]+@([\\\\w-]+\\\\.)+[a-zA-Z]{2,4}\\\\$');",
+			"",
+			"  @override",
+			"  EmailValidationError? validator(String value) {",
+			"    if (!_reg.hasMatch(value)) return EmailValidationError.invalid;",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "Email validator (regex)."
+	},
+	// -----------------------------
+	// PASSWORD
+	// -----------------------------
+	"Formz Password Input": {
+		"prefix": "formzPassword",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum PasswordValidationError { short, invalid }",
+			"",
+			"class PasswordInput extends FormzInput<String, PasswordValidationError> {",
+			"  const PasswordInput.pure() : super.pure('');",
+			"  const PasswordInput.dirty([super.value = '']) : super.dirty();",
+			"",
+			"  @override",
+			"  PasswordValidationError? validator(String value) {",
+			"    if (value.length < 6) return PasswordValidationError.short;",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "Password input validator."
+	},
+	// -----------------------------
+	// MOBILE (India)
+	// -----------------------------
+	"Formz Mobile Input": {
+		"prefix": "formzMobile",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum MobileValidationError { invalid }",
+			"",
+			"class MobileInput extends FormzInput<String, MobileValidationError> {",
+			"  const MobileInput.pure() : super.pure('');",
+			"  const MobileInput.dirty([super.value = '']) : super.dirty();",
+			"",
+			"  static final _reg = RegExp(r'^[6-9][0-9]{9}\\\\$');",
+			"",
+			"  @override",
+			"  MobileValidationError? validator(String value) {",
+			"    if (!_reg.hasMatch(value)) return MobileValidationError.invalid;",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "Indian mobile number validator."
+	},
+	// -----------------------------
+	// URL
+	// -----------------------------
+	"Formz URL Input": {
+		"prefix": "formzUrl",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum UrlValidationError { invalid }",
+			"",
+			"class UrlInput extends FormzInput<String, UrlValidationError> {",
+			"  const UrlInput.pure() : super.pure('');",
+			"  const UrlInput.dirty([super.value = '']) : super.dirty();",
+			"",
+			"  static final _reg = RegExp(r'^(https?:\\\\/\\\\/)?[\\\\w.-]+\\\\.[a-zA-Z]{2,}.*\\\\$');",
+			"",
+			"  @override",
+			"  UrlValidationError? validator(String value) {",
+			"    if (!_reg.hasMatch(value)) return UrlValidationError.invalid;",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "URL validator."
+	},
+	// -----------------------------
+	// OTP
+	// -----------------------------
+	"Formz OTP Input": {
+		"prefix": "formzOtp",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum OtpValidationError { invalid }",
+			"",
+			"class OtpInput extends FormzInput<String, OtpValidationError> {",
+			"  const OtpInput.pure() : super.pure('');",
+			"  const OtpInput.dirty([super.value = '']) : super.dirty();",
+			"",
+			"  static final _reg = RegExp(r'^[0-9]{4,6}\\\\$');",
+			"",
+			"  @override",
+			"  OtpValidationError? validator(String value) {",
+			"    if (!_reg.hasMatch(value)) return OtpValidationError.invalid;",
+			"    return null;",
+			"  }",
+			"}"
+		],
+		"description": "OTP validator."
+	},
+	// -----------------------------
+	// DATE INPUT
+	// -----------------------------
+	"Formz Date Input": {
+		"prefix": "formzDate",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum ${1:Name}ValidationError { invalid }",
+			"",
+			"class ${1:Name}Input extends FormzInput<DateTime, ${1:Name}ValidationError> {",
+			"  const ${1:Name}Input.pure() : super.pure(DateTime.now());",
+			"",
+			"  const ${1:Name}Input.dirty(DateTime value) : super.dirty(value);",
+			"",
+			"  @override",
+			"  ${1:Name}ValidationError? validator(DateTime value) {",
+			"    // TODO: Replace with your validation rule",
+			"    if (!${2:functionName}(value)) {",
+			"      return ${1:Name}ValidationError.invalid;",
+			"    }",
+			"",
+			"    return null;",
+			"  }",
+			"",
+			"  bool ${2:functionName}(DateTime value) {",
+			"    // TODO: Implement your validation logic",
+			"    return true;",
+			"  }",
+			"}",
+			""
+		],
+		"description": "DateTime Formz input with custom validation function.",
+	},
+	// -----------------------------
+	// NULLABLE DATE INPUT
+	// -----------------------------
+	"Formz Nullable Date Input": {
+		"prefix": "formzDateNullable",
+		"body": [
+			"import 'package:formz/formz.dart';",
+			"",
+			"enum ${1:Name}ValidationError { invalid }",
+			"",
+			"class ${1:Name}Input extends FormzInput<DateTime?, ${1:Name}ValidationError> {",
+			"  const ${1:Name}Input.pure() : super.pure(null);",
+			"",
+			"  const ${1:Name}Input.dirty([super.value]) : super.dirty();",
+			"",
+			"  @override",
+			"  ${1:Name}ValidationError? validator(DateTime? value) {",
+			"    if (value == null) return null;",
+			"",
+			"    if (!${2:functionName}(value)) {",
+			"      return ${1:Name}ValidationError.invalid;",
+			"    }",
+			"",
+			"    return null;",
+			"  }",
+			"",
+			"  bool ${2:functionName}(DateTime value) {",
+			"    return true;",
+			"  }",
+			"}",
+			""
+		],
+		"description": "Nullable DateTime Formz input with custom validation function."
+	},
 }
